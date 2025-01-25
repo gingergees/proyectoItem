@@ -5,6 +5,13 @@
 import express from 'express'; // Importamos Express
 import Item from '../models/item.js'; // Importamos el modelo Item
 
+import path from 'path'; 
+import { fileURLToPath } from "url";
+
+// Configurar __dirname para ES6
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const router = express.Router();
 
 // Ruta para crear un nuevo item (POST)

@@ -9,6 +9,13 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv'; // Para cargar las variables de entorno desde el archivo .env
+import path from 'path'
+
+import { fileURLToPath } from "url";
+
+// Configurar __dirname para ES6
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 // import env from 'env-var';
 
 dotenv.config(); // Cargar las variables de entorno desde el archivo .env
@@ -31,7 +38,14 @@ mongoose.connect(DB_URI, {
 
 // Importamos las rutas del CRUD para los items
 
+
 app.use('/api/items', router); // Definimos las rutas para gestionar los items
+
+app.use(express.static(path.join(__dirname, '../public')));
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public', 'index.html'));
+});
 
 // Iniciamos el servidor
 app.listen(PORT, () => {
