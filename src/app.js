@@ -37,11 +37,11 @@ mongoose.connect(DB_URI, {
   .catch((err) => console.log('Error al conectar a la base de datos: ', err));
 
 // Importamos las rutas del CRUD para los items
-
+app.use(express.static(path.join(__dirname, '../public')));
 
 app.use('/api/items', router); // Definimos las rutas para gestionar los items
 
-app.use(express.static(path.join(__dirname, '../public')));
+
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../public', 'index.html'));
