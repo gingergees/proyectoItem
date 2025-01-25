@@ -16,6 +16,7 @@ const router = express.Router();
 
 // Ruta para crear un nuevo item (POST)
 router.post('/', async (req, res) => {
+  console.log("hola desde el github jejeje")
   try {
     // Creamos una nueva instancia del modelo Item con los datos recibidos en el cuerpo de la solicitud
     const newItem = new Item(req.body);
