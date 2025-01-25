@@ -39,7 +39,7 @@ mongoose.connect(DB_URI, {
 // Importamos las rutas del CRUD para los items
 
 
-app.use('/api/items', router); // Definimos las rutas para gestionar los items
+app.use('https://proyecto-item.vercel.app/api/items', router); // Definimos las rutas para gestionar los items
 
 app.use(express.static(path.join(__dirname, '../public')));
 
