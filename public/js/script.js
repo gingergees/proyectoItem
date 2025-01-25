@@ -1,4 +1,4 @@
-const apiUrl = 'https://proyecto-item-77beerd2t-daniels-projects-b9becade.vercel.app/api/items'; // URL de la API para los items
+const apiUrl = 'https://proyecto-item.vercel.app/api/items'; // URL de la API para los items
 
 // Función para obtener todos los items desde el backend
 function getItems() {
