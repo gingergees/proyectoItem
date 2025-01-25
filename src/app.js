@@ -6,7 +6,7 @@
 //const itemRoutes = require('./routes/itemesroute');
 import  router  from './routes/itemesroute.js'; // Importamos las rutas de los items
 import express from 'express';
-import cors from 'cors';
+//import cors from 'cors';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv'; // Para cargar las variables de entorno desde el archivo .env
 import path from 'path'
@@ -23,7 +23,7 @@ dotenv.config(); // Cargar las variables de entorno desde el archivo .env
 
 // Inicializamos la aplicación Express
 const app = express();
-app.use(cors()); // Habilitar CORS para permitir peticiones de otros orígenes
+//app.use(cors()); // Habilitar CORS para permitir peticiones de otros orígenes
 app.use(express.json()); // Parsear JSON en las solicitudes entrantes
 
 // const DB_URL= env.get('DB_URL').required().asString();
@@ -39,7 +39,7 @@ mongoose.connect(DB_URI, {
 // Importamos las rutas del CRUD para los items
 
 
-app.use('api/items', router); // Definimos las rutas para gestionar los items
+app.use('/api/items', router); // Definimos las rutas para gestionar los items
 
 app.use(express.static(path.join(__dirname, '../public')));
 
