@@ -28,7 +28,7 @@ app.use(express.json()); // Parsear JSON en las solicitudes entrantes
 
 // const DB_URL= env.get('DB_URL').required().asString();
 const PORT = process.env.PORT || 5000; // Puerto donde correrá el servidor
-const DB_URI = process.env.DB_URL; // URL de conexión a la base de datos (definida en .env)'
+const DB_URI = process.env.DB_URI; // URL de conexión a la base de datos (definida en .env)'
 // Conectamos a la base de datos de MongoDB
 mongoose.connect(DB_URI, { 
   useNewUrlParser: true, 
@@ -37,11 +37,11 @@ mongoose.connect(DB_URI, {
   .catch((err) => console.log('Error al conectar a la base de datos: ', err));
 
 // Importamos las rutas del CRUD para los items
-app.use(express.static(path.join(__dirname, '../public')));
+
 
 app.use('/api/items', router); // Definimos las rutas para gestionar los items
 
-
+app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../public', 'index.html'));
