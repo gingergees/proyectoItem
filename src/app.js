@@ -38,6 +38,14 @@ mongoose.connect(DB_URI, {
 
 // Importamos las rutas del CRUD para los items
 
+// Configurar CORS
+const corsOptions = {
+  origin: "https://proyecto-item-f2rbg5lld-daniels-projects-b9becade.vercel.app", // URL de tu frontend
+  methods: ["GET", "POST", "PUT", "DELETE"], // Métodos permitidos
+  allowedHeaders: ["Content-Type", "Authorization"], // Headers permitidos
+};
+
+app.use(cors(corsOptions));
 
 app.use('https://proyecto-item-77beerd2t-daniels-projects-b9becade.vercel.app/api/items', router); // Definimos las rutas para gestionar los items
 
